@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="en">
 <head>
+  {% load static %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Jekyll v4.1.1">
-  <title>Album example · Bootstrap</title>
+  <title>JJ</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
 
@@ -46,15 +47,15 @@
 <body>
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">JJ</a>
+    <a class="navbar-brand" href="{% url 'home' %}">JJ</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
-        <a class="nav-link" href="#">Twitter</a>
-        <a class="nav-link" href="#">Resume</a>
-        <a class="nav-link" href="#">Blog</a>
+        <a class="nav-link" href="https://twitter.com">Twitter</a>
+        <a class="nav-link" href="{% static 'my_resume.pdf' %}">Resume</a>
+        <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
       </div>
     </div>
   </nav>
@@ -66,10 +67,9 @@
     <div class="container">
       <h1>Hi I am JJ</h1>
       <p class="lead text-muted">Welcome to my website where you can see my Django projects.</p>
-      <p>
-        <a href="mailto:jedrzejkardach@me.com" class="btn btn-primary my-2">Email me!</a>
-        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-      </p>
+      <a href="mailto:jedrzejkardach@me.com" class="btn btn-primary my-2">Email me!</a>
+      <br/>
+      <img class="img-fluid" src="{% static 'clouds-daylight-environment-462146.jpg' %}" height="400" width="400"/>
     </div>
   </section>
 
@@ -81,7 +81,7 @@
         {% for job in jobs_list.all %}
         <div class="col-md-4">
           <div class="card mb-4 shadow">
-            <img class="card-img-top" src="{{ job.image.url }}"</img>
+            <img class="card-img-top" src="{{ job.image.url }}"/>
             <div class="card-body">
               <p class="card-text">{{ job.summary }}</p>
             </div>
